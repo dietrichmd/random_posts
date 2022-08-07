@@ -1,8 +1,8 @@
 <?php
 /*
-   Plugin Name: Random Posts for Destinations
+   Plugin Name: Random Posts
    Plugin URI: https://vestrainteractive.com/
-   Version: 1.2
+   Version: 1.2a
    Author: vestrainteractive.com
    Description: Plugin to generate random posts.  For multiple buttons, add if statements and modify cats as needed.
    License: GPLv3
