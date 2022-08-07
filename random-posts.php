@@ -1,29 +1,33 @@
 <?php
 /*
-   Plugin Name: Random Posts
+   Plugin Name: Random Posts for Destinations
    Plugin URI: https://vestrainteractive.com/
-   Version: 3.1
+   Version: 1.2
    Author: vestrainteractive.com
-   Description: Plugin to generate random posts to interstate us highways and state highways
+   Description: Plugin to generate random posts.  For multiple buttons, add if statements and modify cats as needed.
    License: GPLv3
   */
 
-add_action('init','random_add_rewrite');
-function random_add_rewrite() {
-       global $wp;
-       $wp->add_query_var('random');
-       add_rewrite_rule('random/?$', 'index.php?random=1', 'top');
+add_action('template_redirect','destrandom_template');
+function random_post_redirect() {
+
+    global $wp;
+    if($wp->request === 'random' || $wp->request === 'destrandom'){
+        
+        $args = array(
+            'post_type'   => 'post',
+            'numberposts' => 1,
+            'orderby' => 'rand',
+        );
+    
+        if ( $wp->request === 'destrandom' ) {
+            $args['cat'] = array(7504,3698,1532,3088,3351,66,4667,3912,894,1556,33,3825,3827,3951,4638,2336,1597,39,2923,50,3465,3851,3764,1113,4214,3262,1693,807,798,760,776,127);
+        }
+        
+        $random_post = get_posts( $args );
+        wp_redirect( get_the_permalink($random_post[0]) );
+        die;
+    }
+    
 }
- 
-add_action('template_redirect','random_template');
-function random_template() {
-       if (get_query_var('random') == 1) {
-               $posts = get_posts('post_type=post&cat=array(<cats here>)&orderby=rand&numberposts=1');
-               foreach($posts as $post) {
-                       $link = get_permalink($post);
-               }
-               wp_redirect($link,307);
-               exit;
-       }
-}
-wp_reset_postdata(); 
+add_action( 'template_redirect', 'random_post_redirect' );
