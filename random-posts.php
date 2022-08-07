@@ -18,7 +18,7 @@ function random_add_rewrite() {
 add_action('template_redirect','random_template');
 function random_template() {
        if (get_query_var('random') == 1) {
-               $posts = get_posts('post_type=post&cat=array(154,13,54,32,58)&orderby=rand&numberposts=1');
+               $posts = get_posts('post_type=post&cat=array(<cats here>)&orderby=rand&numberposts=1');
                foreach($posts as $post) {
                        $link = get_permalink($post);
                }
