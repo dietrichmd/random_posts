@@ -4,7 +4,7 @@
    Plugin URI: https://vestrainteractive.com/
    Version: 1.2
    Author: vestrainteractive.com
-   Description: Plugin to generate random posts to interstate us highways and state highways
+   Description: Plugin to generate random posts
    License: GPLv3
   */
 
