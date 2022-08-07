@@ -12,7 +12,7 @@ add_action('template_redirect','destrandom_template');
 function random_post_redirect() {
 
     global $wp;
-    if($wp->request === 'random' || $wp->request === 'destrandom' /*|| $wp->request === 'thirditem') */{
+    if($wp->request === 'random' || $wp->request === 'destrandom' /*|| $wp->request === 'thirditem') */ ){
         
         $args = array(
             'post_type'   => 'post',
