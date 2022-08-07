@@ -21,7 +21,7 @@ function random_post_redirect() {
         );
     
         if ( $wp->request === 'destrandom' ) {
-            $args['cat'] = array(7504,3698,1532,3088,3351,66,4667,3912,894,1556,33,3825,3827,3951,4638,2336,1597,39,2923,50,3465,3851,3764,1113,4214,3262,1693,807,798,760,776,127);
+            $args['cat'] = array(cat ids);
         }
         /* if ( $wp->request === 'thirditem' ) {
             $args['post__in'] = array(post ids);
